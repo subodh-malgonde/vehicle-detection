@@ -10,7 +10,7 @@ Algorithm Used: You Only Look Once (YOLO) v1
 ## Brief Intro
 Traditional, computer vision technique based, approaches for object detection systems repurpose classifiers to perform detection. To detect an object, these systems take a classifier for that object and evaluate it at various locations and scales in a test image. Systems like deformable parts models (DPM) use a **sliding window** approach where the classifier is run at evenly spaced locations over the entire image.
 
-Other approaaches like R-CNN use region proposal methods to first generate potential bounding boxes in an image and then run a classifier on these proposed boxes. After classification, post-processing is used to refine the bounding boxes, eliminate duplicate detections, and rescore the boxes based on other objects in the scene. These complex
+Other approaches like R-CNN use region proposal methods to first generate potential bounding boxes in an image and then run a classifier on these proposed boxes. After classification, post-processing is used to refine the bounding boxes, eliminate duplicate detections, and rescore the boxes based on other objects in the scene. These complex
 pipelines are slow and hard to optimize because each individual component must be trained separately.
 
 YOLO reframes object detection as a single regression problem, straight from image pixels to bounding box coordinates
@@ -96,7 +96,7 @@ The model was trained on PASCAL VOC dataset. We use S = 7, B = 2. PASCAL VOC has
 
 The structure of the 1470 length tensor is as follows:
 
-1. First 980 values correspons to probabilities for each of the 20 classes for each grid cell. These probabilities are conditioned on objects being present in each grid cell.
+1. First 980 values corresponds to probabilities for each of the 20 classes for each grid cell. These probabilities are conditioned on objects being present in each grid cell.
 2. The next 98 values are confidence scores for 2 bounding boxes predicted by each grid cells.
 3. The next 392 values are co-ordinates (x, y, w, h) for 2 bounding boxes per grid cell.
 
